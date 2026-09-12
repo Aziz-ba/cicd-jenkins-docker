@@ -1,4 +1,4 @@
-# 🚀 CI/CD Pipeline — Jenkins · Docker · Kubernetes
+# 🚀 CI/CD Pipeline - Jenkins · Docker · Kubernetes
 
 A complete **CI/CD pipeline** that takes a Node.js app from source to a running container image: **Jenkins** builds a **Docker** image on every commit, pushes it to Docker Hub, and **Kubernetes** manifests deploy it behind a LoadBalancer service.
 
@@ -8,23 +8,23 @@ A complete **CI/CD pipeline** that takes a Node.js app from source to a running 
 
 ## 🔄 The pipeline
 
-Defined in [`Jenkinsfile`](Jenkinsfile) — four stages:
+Defined in [`Jenkinsfile`](Jenkinsfile) - four stages:
 
 ```
  SCM checkout ──▶ docker build ──▶ docker login ──▶ docker push
  (Git)            (image :BUILD)   (Docker Hub)      (registry)      ──▶ docker logout (always)
 ```
 
-1. **SCM Checkout** — pull the app from Git
-2. **Build** — `docker build -t <repo>/nodeapp:$BUILD_NUMBER .`
-3. **Login** — authenticate to Docker Hub using Jenkins-managed credentials (never hard-coded)
-4. **Push** — publish the tagged image; `post { always { docker logout } }` cleans up
+1. **SCM Checkout** - pull the app from Git
+2. **Build** - `docker build -t <repo>/nodeapp:$BUILD_NUMBER .`
+3. **Login** - authenticate to Docker Hub using Jenkins-managed credentials (never hard-coded)
+4. **Push** - publish the tagged image; `post { always { docker logout } }` cleans up
 
 ---
 
 ## 📦 The app
 
-A minimal **Express** service ([`nodeapp/index.js`](nodeapp/index.js)) with health-style endpoints — perfect for demonstrating the pipeline end to end:
+A minimal **Express** service ([`nodeapp/index.js`](nodeapp/index.js)) with health-style endpoints - perfect for demonstrating the pipeline end to end:
 
 | Route | Response |
 |-------|----------|
