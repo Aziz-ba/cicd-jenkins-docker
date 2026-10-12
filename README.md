@@ -55,6 +55,14 @@ cd nodeapp && npm install && npm start   # http://localhost:3000
 docker build -t nodeapp . && docker run -p 3000:3000 nodeapp
 ```
 
+Verify the routes once running:
+
+```bash
+curl http://localhost:3000/
+curl http://localhost:3000/will
+curl http://localhost:3000/ready
+```
+
 📄 A full step-by-step walkthrough (with screenshots) is in [`docs/PIPELINE_WALKTHROUGH.md`](docs/PIPELINE_WALKTHROUGH.md).
 
 ---
