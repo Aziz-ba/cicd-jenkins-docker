@@ -17,6 +17,8 @@ pipeline {
         }
         stage('login to dockerhub') {
             steps{
+                // Jenkins credentials() automatically exposes <VAR>_USR and <VAR>_PSW
+                // for username/password credentials; --password-stdin avoids exposing secrets in logs
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
