@@ -30,6 +30,7 @@ pipeline {
 }
 post {
         always {
+            // Ensure Docker registry session is cleared regardless of pipeline success or failure
             sh 'docker logout'
         }
     }
