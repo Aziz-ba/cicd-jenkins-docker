@@ -6,7 +6,8 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/alfredogames26123/nodejs-demo.git'
+                // Clone the application source repository containing the Dockerfile and nodeapp code
+                git 'https://github.com/alfredogames26123/nodejs-demo.git'
             }
         }
 
